@@ -1,0 +1,392 @@
+{% extends "calculo/proforma_base.html" %}
+
+{% block title %} 
+  {{ proforma.titulo }}
+{% endblock %}
+
+{% block content_nodiv %}
+<div class="container">
+  <h1>
+    <span class="glyphicon glyphicon-screenshot"></span> &nbsp;
+    {{ proforma.titulo }}
+  </h1>
+  <div>
+  <table class="table table-hover">
+  <tr>
+    <th>Nombre</th>
+    <th>Uds.</th>
+    <th>Cantidad</th>
+    <th>Precio unitario de venta (USD)</th>
+    <th>Precio total (USD)</th>
+  </tr>
+  {% for partida in proforma.partida_set.all %}
+  <tr>
+    <td>
+      {{ partida.material.nombre }}
+    </td>
+    <td>
+      {{ partida.material.unidades }}
+    </td>
+    <td>
+      {{ partida.cantidad }}
+    </td>
+    <td>
+      {{ partida.pv_manipulado }} ({{ partida.pvUnitario }})
+    </td>
+    <td>
+      {{ partida.pv_total_manipulado }}  ({{ partida.pvTotal }})
+    </td>
+  </tr>
+  {% endfor %}
+  <tr class="success">
+    <td><strong><span class="glyphicon glyphicon-usd"></span> Precio total</strong></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td > <strong>{{proforma.pv_total_manipulado}}</strong>
+      ({{proforma.pvTotal}}) </td>
+  </table>
+</div>
+
+<div class="panel-group" id="accordion">
+
+  <!-- Partidas - nuevas partidas-->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+	  <span class="glyphicon glyphicon-folder-open"> </span>
+          &nbsp; Editar o añadir una partidas
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+	<small>
+	  <table class="table table-striped .table-condensed ">
+	    <tr>
+	      <th>Nombre</th>
+	      <th>Cantidad</th>
+	      <th>Precio unitario de compra (EUR)</th>
+	      <th>Precio de compra (EUR)</th>
+	    </tr>
+	    {% for partida in proforma.partida_set.all %}
+	    <tr>
+	      <td>
+		<a href="{% url 'calculo:detallesPartida' partida.id %}">
+		  {{ partida.material.nombre }}
+		</a>
+	      </td>
+	      <td>
+		{{ partida.cantidad }}
+	      </td>
+	      <td>
+		{{ partida.pcoUnitario }}
+	      </td>
+	      <td>
+		{{ partida.pcoTotal }}
+	      </td>
+	    </tr>
+	    {% endfor %}
+	  </table>
+	</small>
+
+	<hr>
+	<span class="glyphicon glyphicon-file"></span>&nbsp; 
+	<strong>Nueva partida</strong><br>
+	{% if materials %}
+	<ul>
+	  {% for material in materials %}
+          <li>
+	    <a href="{% url 'calculo:nuevaPartida' proforma.id material.id%}">
+	      {{ material.nombre }}
+	    </a>
+	  </li>
+	  {% endfor %}
+	</ul>
+	{% else %}
+	<p>No hay materiales...</p>
+	{% endif %}
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Contenedores -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+	  <span class="glyphicon glyphicon-briefcase"></span>&nbsp; 
+          Contenedores 
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+	<small>
+	<table class="table table-striped .table-condensed ">
+	  <tr>
+	    <th>
+	      Tipo
+	    </th>
+	    <th>
+	      Cantidad
+	    </th>
+	    <th>
+	      Precio de compra (EUR)
+	    </th>
+	  </tr>
+	  {% for contenedor in proforma.contenedoresdeproforma_set.all %}
+	  <tr>
+	    <td>
+	      {{ contenedor.contenedor.tipo }}
+	    </td>
+	    <td>
+	      {{ contenedor.cantidad }}
+	    </td>
+	    <td>
+	      {{ contenedor.precio }}
+	    </td>
+	  </tr>
+	  {% endfor %}
+	</table>
+	</small>
+	<hr>
+        <div>
+	  <span class="glyphicon glyphicon-file"></span>&nbsp; 
+	  Añadir un contenedor:
+	
+	  {% if contenedores %}
+	  <ul>
+	    {% for contenedor in contenedores %}
+            <li>
+	      <a href="{% url 'calculo:nuevoContenedorDP' proforma.id contenedor.id%}">{{ contenedor }}
+	      </a>
+	    </li>
+	    {% endfor %}
+	  </ul>
+	  {% else %}
+	  <p>No hay contenedores...</p>
+	  {% endif %}
+	</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+	   <span class="glyphicon glyphicon-wrench"></span>&nbsp;
+           Montaje
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+      <div class="panel-body">
+	
+	{% if proforma.con_montaje %}
+	<p> <a href ="{% url 'calculo:edit_montaje' proforma.id%}">
+	    Montaje</a>: 
+	  coste {{proforma.montaje.pvp_montaje_total}} </p>
+	{% else %}
+	<p> Sin montaje. 
+	  <a href ="{% url 'calculo:add_montaje' proforma.id%}">
+	    Añadir
+	  </a>
+	</p>
+	{% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          <span class="glyphicon glyphicon-info-sign"></span>&nbsp; Detalles
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+	<p>Desglose de costes/beneficios (en USD)</p>
+	<table class="table">
+	  <tr class='EXW'>
+	    <td>Compra de materiales</td>
+	    <td>{{costes.EXW.compra_materiales}}</td>
+	    <td rowspan="4"> </td>
+	    <td rowspan="4"> </td>
+	    <td rowspan="8" class="CIF"> 
+	      PV CIF <br />
+	      {{costes.CIF.pv_CIF}}
+	    </td>
+	    <td rowspan="14" class="DDP"> 
+	      PV DDP <br />
+	      {{costes.DDP.pv_DDP}}
+	    </td>
+	  </tr>
+	  <tr class='EXW'>
+	    <td>Soluciones: Estructura + beneficios 
+	      ({{proforma.comercialSoluciones}})</td>
+	    <td>{{comisiones.EXW.comisionSoluciones}}</td>
+	  </tr>
+	  <tr class='EXW'>
+	    <td>AY ({{proforma.comercialAY}})</td>
+	    <td>{{comisiones.EXW.comisionAY}}</td>
+	  </tr>
+	  <tr class='EXW'>
+	    <td>PDE ({{proforma.comercialPDE}})</td>
+	    <td>{{comisiones.EXW.comisionPDE}}</td>
+	  </tr>
+	  <tr class='FOB'>
+	    <td>Compra de contenedeores</td>
+	    <td>{{costes.FOB.compra_contenedores}}</td>
+	    <td rowspan="2"> {{costes.FOB.costes_FOB}} </td>
+	    <td rowspan="3" class="CIF"> 
+	      Transporte <br />
+	      (por preK) <br>
+	      {{costes.CIF.transporte1}} <br> 
+	      preK = {{proforma.decimal_pre_k}}
+	    </td>
+	  </tr>
+	  <tr class='FOB'>
+	    <td>Costes de transporte + seguro a puerto de embarque</td>
+	    <td>{{costes.FOB.costes_portes_FOB}}</td>
+	  </tr>
+	  <tr class='CIF'>
+	    <td>Coste de flete</td>
+	    <td>{{costes.CIF.costes_flete}}</td>
+	  </tr>
+	  <tr class='CIF'>
+	    <td>Seguro maritimo</td>
+	    <td>{{costes.CIF.seguro_CIF}}</td>
+	  </tr>
+	  <tr class='DDP'>
+	    <td>Saema: Estructura + beneficios 
+	      ({{proforma.comercial2}})</td>
+	    <td>{{comisiones.DDP.comisionSaema}}</td>
+	  </tr>
+	  <tr class='DDP'>
+	    <td>Costes puerto Angola 
+	      ({{proforma.trans_puerto}})</td>
+	    <td>{{costes.DDP.costes_puerto_Angola}}</td>
+	  </tr>
+	  <tr class='DDP'>
+	    <td>Aduana 
+	      ({{proforma.aduana}})</td>
+	    <td>{{costes.DDP.aduana}}</td>
+	  </tr>
+	  <tr class='DDP'>
+	    <td>Gastos financieros
+	      ({{proforma.gastos_financieros}})</td>
+	    <td>{{costes.DDP.costes_financieros}}</td>
+	  </tr>
+	  <tr class='DDP'>
+	    <td>Impuesto local
+	      ({{proforma.impuestoMaterial}})</td>
+	    <td>{{costes.DDP.impuestos_locales}}</td>
+	  </tr>
+	  <tr class='DDP'>
+	    <td>Impevistos
+	      ({{proforma.gastos_imprevistos}})</td>
+	    <td>{{costes.DDP.imprevistos}}</td>
+	  </tr>
+	</table>
+	<p>k : {{proforma.kProforma}}</p>
+	<p>k con taza de cambio Eur 2 USD: {{proforma.k_con_taza}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Editar proforma -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+	  <span class="glyphicon glyphicon-edit"></span>&nbsp; 
+	  Editar proforma
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse">
+      <div class="panel-body">
+	<form class="form-horizontal" role="form"  
+	      action="{% url 'calculo:detalles' proforma.id%}" method="post">
+	  {% csrf_token %}
+	  {% for field in form %}
+	  <div class="form-group">
+	    {{ field.errors }}
+	    <label class="col-sm-2 control-label">
+	      {{ field.label_tag }}
+	    </label>
+	    <div class="col-sm-10 divform">
+	      {{ field }}
+	    </div>
+	  </div>
+	  {% endfor %}
+
+	  <p class="text-center">
+	    <input class="btn-lg btn-primary submit" type="submit" value="Guardar" />
+	  </p>
+
+	</form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pendulo -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+	  <span class="glyphicon glyphicon-dashboard"></span>&nbsp; 
+	  Pendulo
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse">
+      <div class="panel-body">
+	<form id="penform" action="{% url 'calculo:pendulo' proforma.id%}" 
+	      method="post" class="form-horizontal" role="form" >
+	  {% csrf_token %}
+	  <p>{{ mensaje }} </p>
+	  {% if proforma.partida_set.all %}
+	 
+	   {% for partida in proforma.partida_set.all %}
+	   <div class="row" class="form-group"> 
+	     <div class="col-md-8">
+	       <input type="checkbox" name="penpart" value="{{ partida.id }}">
+	       {{ partida }} 
+	     </div>
+	     <div class="col-md-3 divform">
+	       <input type="text" name="{{partida.id}}" 
+		      value="{{ partida.pv_total_manipulado }}"> 
+	     </div>
+	     <div class="col-md-1">
+	       ({{ partida.pvTotal }})
+	     </div>
+	   </div>
+	   {% endfor %}
+	  
+	  {% else %}
+	  <p>No hay partidas... en esta proforma</p>
+	  {% endif %}
+  
+  <input type="submit" value="Submit" />
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block page-header %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}

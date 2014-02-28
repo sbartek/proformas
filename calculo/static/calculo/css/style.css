@@ -1,0 +1,53 @@
+body { padding-top: 60px; }
+
+
+.pvTotal
+{
+    border: 1px solid black;
+}
+
+#div0 {
+    display: none;
+}
+
+#div1 {
+    display: none;
+}
+
+#div2 {
+    display: none;
+}
+
+.div3 {
+    display: none;
+}
+
+
+.EXW {
+    background-color:#2D80C1;
+    color:white;
+}
+
+.FOB {
+    background-color:#4E90A0;
+    color:white;
+}
+
+.CIF {
+    background-color:#6EA080;
+    color:white;
+}
+
+.DDP {
+    background-color:#8EA260;
+    color:white;
+}
+
+.D_M {
+    background-color: #AFB240;
+    color:white;
+}
+
+.DM2 {
+    background-color: #DFC220;
+}

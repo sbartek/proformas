@@ -1,0 +1,13 @@
+{% extends "calculo/proforma_base.html" %}
+
+{% block title %}Nueva partida{% endblock %}
+{% block page-header %}Nueva partida{% endblock %}
+
+{% block content %}
+<form action="{% url 'calculo:nuevaPartida' proforma.id%}" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

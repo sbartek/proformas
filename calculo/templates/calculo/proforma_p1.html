@@ -1,0 +1,11 @@
+{% extends "calculo/proforma_base.html" %}
+
+{% block title %}Nueva proforma, paso 1{% endblock %}
+
+{% block content %}
+<h1>Nueva proforma, paso 1</h1>
+<form action="{% url 'calculo:nuevaProforma' %}" method="post">
+  {% csrf_token %}
+  Titulo: <input type="text" name="titulo"><br>
+</form>
+{% endblock %}

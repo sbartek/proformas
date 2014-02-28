@@ -1,0 +1,63 @@
+{% extends "calculo/proforma_base.html" %}
+
+{% block title %}Lista de clientes{% endblock %}
+
+{% block content_nodiv %}
+<div class="container">
+
+  <h1><span class="glyphicon glyphicon-credit-card"></span> &nbsp;
+    Lista de clientes
+  </h1>
+  
+  <p class="text-right">
+    <a href=" {% url 'calculo:new_entrada' 'cliente'%}">
+      <button type="button" class="btn btn-default navbar-btn">
+	<span class="glyphicon glyphicon-plus"></span> &nbsp;
+	Añadir cliente
+      </button>
+    </a>
+  </p>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+	<th>Nombre</th>
+	<th>Dirección</th>
+	<th>Pais</th>
+	<th>Telefono</th>
+	<th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cliente in clientes %}
+      <tr>
+	<td>
+	  <a href="{% url 'calculo:edit_entrada' 'cliente' cliente.id %}">{{cliente.nombre}}</a>
+	</td>
+	<td>
+	  {{cliente.direccion}}
+	</td>
+	<td>
+	  {{cliente.pais}}
+	</td>
+	<td>
+	  {{cliente.telefono}}
+	</td>
+	<td>
+	  <a href="{% url 'calculo:remove_entrada' 'cliente' cliente.id %}">
+	    <span class="glyphicon glyphicon-trash"></span>
+	  </a>
+	</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endblock %}
+{% block page-header %}{% endblock %}
+{% block content %}{% endblock %}
+
+

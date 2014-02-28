@@ -1,0 +1,25 @@
+{% extends "calculo/proforma_base.html" %}
+
+{% block title %}Partidas{% endblock %}
+
+{% block content %}
+<form id="penform" action="{% url 'calculo:pendulo' proforma.id%}" 
+      method="post">
+  {% csrf_token %}
+  <p>{{ mensaje }} </p>
+  {% if proforma.partida_set.all %}
+    {% for partida in proforma.partida_set.all %}
+      <input type="checkbox" name="penpart" value="{{ partida.id }}">
+      {{ partida }} 
+      <input type="text" name="{{partida.id}}" 
+	     value="{{ partida.pv_total_manipulado }}"> 
+      ({{ partida.pvTotal }})<br>    
+    {% endfor %}
+  {% else %}
+    <p>No hay partidas... en esta proforma</p>
+  {% endif %}
+  
+  <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

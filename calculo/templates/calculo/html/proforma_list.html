@@ -1,0 +1,59 @@
+{% extends "calculo/proforma_base.html" %}
+
+{% block title %}Lista de proformas{% endblock %}
+
+{% block content_nodiv %}
+{% if proforma_list %}
+<div class="container">
+  <div class="page-header">
+    <h1><span class="glyphicon glyphicon-folder-open"></span> &nbsp; Lista de proformas</h1>
+  </div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+  <table class="table table-striped">
+    <tr>
+      <th>Proforma</th>
+      <th>Cliente</th>
+      <th>Incoterms</th>
+      <th>Precio de venta</th>
+      <th></th>
+    </tr>
+  {% for proforma in proforma_list %}
+  <tr>
+    <td>
+      <a href="{% url 'calculo:detalles' proforma.id %}">
+	{{ proforma.titulo }}
+      </a>
+    </td>
+    <td>{{ proforma.cliente }}</td>
+    <td>{{ proforma.incoterms }}</td>
+    <td>{{ proforma.pvTotal }}</td>
+    <td>
+      <a href="{% url 'calculo:remove_entrada' 'proforma' proforma.id %}">
+	<span class="glyphicon glyphicon-trash"></span>
+      </a>
+    </td>
+  </tr>
+  {% endfor %}
+  </table>
+  {% else %}
+  <p>No hay proformas..</p>
+  {% endif %}
+  <div class="panel-body">
+    <a href="{% url 'calculo:nuevaProforma' %}" 
+       class="btn btn-primary btn-lg active" role="button">
+      Nueva proforma
+    </a>
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block page-header %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}

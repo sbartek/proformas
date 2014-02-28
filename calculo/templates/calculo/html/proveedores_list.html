@@ -1,0 +1,36 @@
+{% extends "calculo/proforma_base.html" %}
+
+{% block title %}Lista de proveedores{% endblock %}
+
+{% block content_nodiv %}
+<div class="container">
+
+  <h1><span class="glyphicon glyphicon-user"></span> &nbsp;
+    Lista de proveedores
+  </h1>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+	<th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for proveedor in proveedores %}
+      <tr>
+	<td>
+	  {{proveedor.nombre}}
+	</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endblock %}
+{% block page-header %}{% endblock %}
+{% block content %}{% endblock %}
+
+

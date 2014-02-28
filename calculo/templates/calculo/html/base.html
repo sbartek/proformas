@@ -1,0 +1,114 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" 
+	content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'calculo/css/bootstrap.css' %}" 
+	rel="stylesheet">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+  
+  
+  <link rel="stylesheet" href="{% static 'calculo/css/style.css' %}" />
+  
+  <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+<!--Navbar-->
+<div class="navbar-wrapper">
+  <div class="container">
+    <nav class="navbar navbar-fixed-top navbar-inverse" 
+	 role="navigation">
+      <div class="container">
+	<div class="navbar-header">
+          <button type="button" class="navbar-toggle" 
+		  data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'calculo:index' %}">
+	    Soluciones
+	  </a>
+	</div>
+	<!-- lo de abajo colapsa --> 
+	<div class="collapse navbar-collapse">
+	  <ul class="nav navbar-nav">
+	    <li class="dropdown">
+              <a href="#" class="dropdown-toggle" 
+		 data-toggle="dropdown">
+		Base de datos<b class="caret"></b>
+	      </a>
+              <ul class="dropdown-menu">
+		<li><a href="{% url 'calculo:cliente_list' %}">Clientes</a></li>
+		<li><a href="{% url 'calculo:proveedores' %}">Proveedores</a></li>
+		<li>
+		  <a href="{% url 'calculo:materiales' %}">
+		    Materiales
+		  </a>
+		</li>
+		<li class="divider"></li>
+		<li><a href="#">Tipos de contenedors</a></li>
+              </ul>
+	    </li>
+	    <li class="dropdown">
+              <a href="#" class="dropdown-toggle" 
+		 data-toggle="dropdown">Proformas<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+		<li>
+		  <a href="{% url 'calculo:proformas' %}">
+		    Lista de proformas
+		  </a>
+		</li>
+		<li>
+		  <a href="{% url 'calculo:nuevaProforma' %}">
+		    Nueva proforma
+		  </a>
+		</li>
+              </ul>
+	    </li>
+	  </ul>
+	</div>
+      </div>
+    </nav>
+  </div>
+</div>
+  
+<!-- Contenido sin container -->
+{% block content_nodiv %} {% endblock %}
+
+
+<!-- contenido -->
+<div class="container">
+  <div class="page-header">
+    <h1>{% block page-header %}{% endblock %}</h1>
+  </div>
+</div>  
+
+<div class="container">
+  {% block content %}{% endblock %}
+</div>
+
+<div class="container">
+
+  <address>
+    <strong>Soluciones de Gestión y Apoyo a Empresas SL</strong><br>
+    Avda. Diagonal Plaza, 14 -- Nave 24 <br>
+    Zaragoza 50.197<br>
+    España<br>
+  </address>
+</div>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="{% static 'calculo/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'calculo/js/proforma_base.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends "calculo/proforma_base.html" %}
+
+{% block title %}Nuevo contenedor(es){% endblock %}
+
+{% block content %}
+<form action="{% url 'calculo:editContenedorDP' contenedorDP.id%}" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

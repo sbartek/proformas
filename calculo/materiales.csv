@@ -1,0 +1,146 @@
+nombre,nombre de provedor,unidades,precioRef
+"Apertura de vala em chão fraco, colocação dos cabos de M.T. e fechado da vala. Não inclui betão",Test,u,18000
+"Apertura de vala em chão rígido, colocação dos cabos de M.T. e fechado da vala. Não inclui betão",Test,u,25000
+Armário 1000 A 3 saídas exterior,Test,u,513
+Bifurcação termo retráctil,Test,u,20.54
+Cabo 1x95 mm2 Al 12/24 kV,Test,m,7.61
+Cabo 1x240 mm2 Al 12/24 kV,Test,m,15.85
+Cabo 1x95 mm2 Al 18/36 kV,Test,m,12
+Cabo LA-56,Test,m,0.6
+Cabo LA-110,Test,m,1.1
+Cabo nu 50 mm2 Cu,Test,m,5.96
+Cabo RVK - 185 mm Cu,Test,m,
+Cabo RVK - 95 mm Cu,Test,m,
+Cabo RV-K 1x150 mm2 Cu 0.6/1 kV,Test,m,9.22
+Cabo RV-K 1x240 mm2 Cu 0.6/1 kV,Test,m,17.5
+Cabo RV-K 1x50 mm2 Cu 0.6/1 kV,Test,m,3.21
+Cabo RV-K 1x95 mm2 Cu 0.6/1 kV,Test,m,7.1
+Cela compacta 2L + P SF6 24 KV 630 A com protecção do transformador com fusíveis,Test,u,4650
+Cela compacta 2L + P SF6 36 KV 630 A com protecção do transformador com fusíveis,Test,u,8757
+Cela modular de linha 24 KV 630 A,Test,u,1617
+Cela modular de linha 36 KV 630 A,Test,u,3205
+Cela modular de proteção com fussíveis 24 KV 630 A,Test,u,1894
+Cela modular de proteção com fussíveis 36 KV 630 A,Test,u,3785
+Cela de medida em MT 24 kV 630 A com 3 TTs 15:V3/0.11:V3 e 3 Tis 60/5 A 24 kV,Test,u,4475
+Cela de medida em MT 36 kV 630 A com 3 TTs 33:V3/0.11:V3 e 3 Tis 30/5 A 36 kV,Test,u,6725
+Cela de subida á barramento 24 kV 630 A,Test,u,675
+Cela entrada de linha 24 kV 630 A,Test,u,1617
+Cela protecção transformador com ruptofussivéis 24 kV 630 A,Test,u,2057
+Cruzeta assimétrica para pararraios,Test,u,125
+Cruzeta assimétrica para XS,Test,u,115
+Cruzeta recta para torre celosía C-2000-12,Test,u,179
+Desmatado,Test,u,20000
+"Electrodos de Terra, 1,5 m",Test,u,
+Envolvente Metálica Prefabricada,Test,u,3960
+Equipamento de prevenção de riscos e primeiros socorros,Test,u,200
+Fita sinalização,Test,u,0.072
+Forquilha Bola HB 16,Test,u,3.95
+Fusives de M.T de 30 Kv 16 A,Test,u,
+Fussíveis de M.T de 24 kV 30 A,Test,u,
+Gancho rabo de porco,Test,u,4.97
+Grampa cabo-cabo 50 mm2 Cu,Test,u,2.95
+Grampa cabo-cabo 50 mm2 Cu,Test,u,4.27
+Grampa cabo-cabo LA-110,Test,u,6
+Grampa cabo-cabo LA-56,Test,u,6
+Grampa pica-cabo 50 mm2 Cu,Test,u,2.95
+"Grapas de Terra, GA - 14",Test,u,
+I.P.T.R. 160 A,Test,u,250
+I.P.T.R. 250 A,Test,u,320
+I.P.T.R. 400 A,Test,u,469
+Instalação apoios linha aérea e aterramentos,Test,u,1500
+Isoladores ARVI 42 com suporte,Test,u,51
+Isoladores rígidos epoxi até 36 kV,Test,u,31
+Isoladores U 70,Test,u,10.7
+Jogo de Conectores em L de  24 kV para cabo 1x95 Al 12/24 kV,Test,u,147
+Jogo de Conectores em L de  36 kV para cabo 1x95 Al 18/36 kV,Test,u,297
+Jogo de Conectores em T de 24 kV para cabo 1x95 Al 12/24 kV,Test,u,255
+Jogo de Conectores em T de 36 kV para cabo 1x95 Al 18/36 kV,Test,u,369
+Jogo terminais exterior rectos 24 kV para cabo 1x95 Al 12/24 kV,Test,u,120
+Jogo terminais exterior rectos 36 kV para cabo 1x95 Al 18/36 kV,Test,u,154
+Jogo terminais interior rectos 24 kV para cabo 1x95 Al 12/24 kV,Test,u,60
+Jogo terminais interior rectos 36 kV para cabo 1x95 Al 18/36 kV,Test,u,112
+Jogo empalmes para cabo 1x95 18/36 kV com manguito bimetálico,Test,u,633
+Jogo empalmes para cabo 1x95 12/24 kV com manguito bimetálico,Test,u,540
+Jogo três pararraios 24 kV,Test,u,144
+Jogo três pararraios 36 kV,Test,u,222
+Jogo três XS 24 kV inclui o fio fusível de 30 A,Test,u,231
+Jogo três XS 36 kV inclui o fio fusível de 30 A,Test,u,315
+Lançamento dos cabos linha aérea,Test,u,1800
+Montagem cadeias e isoladores linha aérea,Test,u,120
+Montagem equipamentos eléctricos do PT. Não inclui os tamites de ligação com a empreita eléctrica,Test,u,10000
+Montagem PT`s rurais,Test,u,10000
+Ómegas para isoladores rígidos epoxi,Test,u,3
+Picas de terra,Test,u,7.96
+Pinça de amarração GA-1,Test,u,4.58
+Pinça de amarração GA-2,Test,u,6.61
+Pinça de suspenção GS-1,Test,u,2.7
+Pinça de suspenção GS-2,Test,u,3.5
+Placa protecção PVC,Test,u,0.75
+"Posto grelhado para iluminação pública de 30 m altura (27,35 útil) e plataforma na parte superior com painel para instalação de até 6 projectores",Test,u,2880
+Projector halogenuro metálico (luz branca) de 400 W,Test,u,71
+Projector halogenuro metálico (luz branca) de 1000 W,Test,u,465
+Q.G.B.T de 1600 A com interruptor na entrada e fussíveis nas saídas,Test,u,1565
+Q.G.B.T de 1800 A com interruptor na entrada e fussíveis nas saídas,Test,u,1832
+Q.G.B.T. 1000 A 4 saídas com fussivéis,Test,u,563
+Quadro de medida com contador e janela de verificação,Test,u,1100
+Regulação linha aérea,Test,u,300
+Rótula Cumprida R 16 P,Test,u,3.7
+Seccionador 30 kV 400 A com comando,Test,u,1945
+SUMA MATERIALES COSTE SOLUCIONES,Test,u,
+Suporte para transformador,Test,u,345
+Terminais 150 mm2 Cu,Test,u,1.48
+Terminais 240 mm2 Cu,Test,u,1.88
+Terminais 50 mm2 Cu,Test,u,0.38
+Terminais 95 mm2 Cu,Test,u,1.55
+Terminais Bimetálico de 95 mm,Test,u,
+Terminais bimetálicos 95 mm2,Test,u,0.93
+Terminais  LA-56,Test,u,5.52
+Terminais LA-110,Test,u,6.6
+Terminas de 150 mm Cu,Test,u,
+Terminas de 50 mm Cu,Test,u,
+"Topografia, projecto e direcção de obra",Test,u,
+Torre celosía C-2000 12,Test,u,899
+"Transformador de 50 KVA - 15/0,42 KV",Test,u,2314
+"Transformador de 50 KVA - 30/0,42 KV",Test,u,2462
+"Transformador de 100 KVA - 15/0,42 KV",Test,u,3086
+"Transformador de 100 KVA - 30/0,42 KV",Test,u,3288
+"Transformador de 160 KVA - 15/0,42 KV",Test,u,3486
+"Transformador de 160 KVA - 30/0,42 KV",Test,u,3716
+"Transformador de 250 KVA - 30/0,42 KV",Test,u,5119
+"Transformador de 250 KVA - 15/0,42 KV",Test,u,3300
+"Transformador de 400 kVA - 15/0,42 kV",Test,u,5764
+"Transformador de 400 kVA - 30/0,42 kV",Test,u,6046
+"Transformador de 630 KVA - 15/0,42 KV",Test,u,6960
+"Transformador de 630 KVA - 30/0,42 KV",Test,u,7326
+"Transformador de 800 KVA - 15/0,42 KV",Test,u,8352
+"Transformador de 800 KVA - 30/0,42 KV",Test,u,8923
+"Transformador de 1000 KVA - 15/0,42 KV",Test,u,9844
+"Transformador de 1000 KVA - 30/0,42 KV",Test,u,10519
+"Transformador de 1250 KVA - 15/0,42 KV",Test,u,11710
+"Transformador de 1250 KVA - 30/0,42 KV",Test,u,12514
+"Transformador de intensidade para medida em BT 400/5 A cl. 0,5",Test,u,300
+"Transformador de intensidade para medida em BT 900/5 A cl. 0,5",Test,u,350
+Tubo corrugado 90 mm,Test,u,0.92
+Tubo PVC 90 mm 3 m,Test,u,23.95
+Posto de betão B - (400-600) Kg de 12 Mts,Test,u,700.00
+Posto de betão B - (800-1.200) Kg de 12 Mts,Test,u,793.00
+Posto de betão B - (1.500-1.600) Kg de 12 Mts,Test,u,955.00
+Posto de betão B - (400-600) Kg de 14 Mts,Test,u,958.00
+Posto de betão B - (800-1.200) Kg de 14 Mts,Test,u,"1,042.00"
+Posto de betão B - (1.500-1.600) Kg de 14 Mts,Test,u,"1,139.00"
+"Torre de celosía C-500, 12 Mts",Test,u,543.00
+"Torre de celosía C-1000, 12 Mts",Test,u,669.00
+"Torre de celosía C-2000, 12 Mts",Test,u,755.00
+"Torre de celosía C-3000, 12 Mts",Test,u,951.00
+"Torre de celosía C-500, 14 Mts",Test,u,758.00
+"Torre de celosía C-1000, 14 Mts",Test,u,642.00
+"Torre de celosía C-2000, 14 Mts",Test,u,909.00
+Travessa de amarração em galhardete,Test,u,493.00
+Travessa final de linha,Test,u,132.00
+Travessa de suspenção,Test,u,192.00
+"Posto iluminação pública de 10 m, com 1-BRAÇO DE 1,5 m",Test,u,204.00
+"Posto iluminação pública de 10 m, com 2-BRAÇO DE 1,5 m",Test,u,329.00
+"Posto iluminação pública de 10 m, com 3-BRAÇO DE 1,5 m ",Test,u,455.00
+Apoio metálico rectangular JBN - 400 - 11P,Test,u,699.00
+Apoio metálico rectangular JBN - 630 - 11P,Test,u,884.00
+Apoio metálico rectangular JBN - 800 - 11P,Test,u,"1,029.00"

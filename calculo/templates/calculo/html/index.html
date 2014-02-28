@@ -1,0 +1,101 @@
+
+
+{% extends "calculo/proforma_base.html" %}
+
+{% block title %}SolApps{% endblock %}
+
+{% block content_nodiv %}
+{% load staticfiles %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="container">
+  <div class="jumbotron">
+    <h1>
+      <img 
+       width="100px" 
+       src="{% static 'calculo/graphics/solucionesBlackTrans800x800.png' %}"
+       />
+      Proformas
+    </h1>
+    <p>Un programa simple de calculo de ofertas para Soluciones.</p>
+  </div>
+  <div class="row">
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+	<div class="panel-body">
+	  <h3>Proformas</h3>
+	  <hr />
+	  <div class="panel panel-default">
+	    <a href="{% url 'calculo:nuevaProforma' %}">
+	      <div class="panel-body">
+		<h4>
+		  <span class="glyphicon glyphicon-file"></span> &nbsp; 
+		  Nueva proforma
+		</h4>
+	      </div>
+	    </a>
+	  </div>
+	  <div class="panel panel-default">
+	    <a href="{% url 'calculo:proformas' %}">
+	      <div class="panel-body">
+		<h4>
+		  <span class="glyphicon glyphicon-folder-open"></span> &nbsp; 
+		  Lista de proformas
+		</h4>
+	      </div>
+	    </a>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+	<div class="panel-body">
+	  <h3>Base de datos</h3>
+	  <hr />
+
+	  <div class="panel panel-default">
+	    <a href="{% url 'calculo:cliente_list' %}">
+	      <div class="panel-body">
+		<h4>
+		  <span class="glyphicon glyphicon-credit-card"></span> &nbsp; 
+		  Clientes
+		</h4>
+	      </div>
+	    </a>
+	  </div>
+
+	  <div class="panel panel-default">
+	    <a href="{% url 'calculo:proveedores' %}">
+	      <div class="panel-body">
+		<h4>
+		  <span class="glyphicon glyphicon-user"></span> &nbsp; 
+		  Provedores
+		</h4>
+	      </div>
+	    </a>
+	  </div>
+
+	  <div class="panel panel-default">
+	    <a href="{% url 'calculo:materiales' %}">
+	      <div class="panel-body">
+		<h4>
+		  <span class="glyphicon glyphicon-tree-conifer"></span> &nbsp; 
+		  Materiales
+		</h4>
+	      </div>
+	    </a>
+	  </div>
+
+	</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}
+{% block page-header %}{% endblock %}
+{% block content %}{% endblock %}
