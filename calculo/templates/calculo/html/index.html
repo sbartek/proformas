@@ -56,7 +56,7 @@
 	  <hr />
 
 	  <div class="panel panel-default">
-	    <a href="{% url 'calculo:cliente_list' %}">
+	    <a href="{% url 'calculo:entrada_list' 'cliente'%}">
 	      <div class="panel-body">
 		<h4>
 		  <span class="glyphicon glyphicon-credit-card"></span> &nbsp; 
@@ -67,7 +67,7 @@
 	  </div>
 
 	  <div class="panel panel-default">
-	    <a href="{% url 'calculo:proveedores' %}">
+	    <a href="{% url 'calculo:entrada_list' 'proveedor' %}">
 	      <div class="panel-body">
 		<h4>
 		  <span class="glyphicon glyphicon-user"></span> &nbsp; 
@@ -78,7 +78,7 @@
 	  </div>
 
 	  <div class="panel panel-default">
-	    <a href="{% url 'calculo:materiales' %}">
+	    <a href="{% url 'calculo:entrada_list' 'material' %}">
 	      <div class="panel-body">
 		<h4>
 		  <span class="glyphicon glyphicon-tree-conifer"></span> &nbsp; 

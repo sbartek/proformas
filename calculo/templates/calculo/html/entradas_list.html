@@ -1,34 +1,41 @@
 {% extends "calculo/proforma_base.html" %}
 
-{% block title %}Lista de proveedores{% endblock %}
+{% block title %}Lista de {{ plural }}{% endblock %}
 
 {% block content_nodiv %}
 <div class="container">
 
-  <h1><span class="glyphicon glyphicon-user"></span> &nbsp;
-    Lista de proveedores
+  <h1><span class="glyphicon glyphicon-credit-card"></span> &nbsp;
+    Lista de {{ plural }} 
   </h1>
-
+  
   <p class="text-right">
-    <a href=" {% url 'calculo:new_entrada' 'proveedor'%}">
+    <a href=" {% url 'calculo:new_entrada' entrada_name%}">
       <button type="button" class="btn btn-default navbar-btn">
 	<span class="glyphicon glyphicon-plus"></span> &nbsp;
-	Añadir proveedor
+	Añadir {{ entrada_name }}
       </button>
     </a>
   </p>
-  
+
   <table class="table table-hover">
     <thead>
       <tr>
-	<th>Nombre</th>
+	<th></th>
+	<th></th>
       </tr>
     </thead>
     <tbody>
-      {% for proveedor in proveedores %}
+      {% for entrada in entradas %}
       <tr>
 	<td>
-	  {{proveedor.nombre}}
+	  <a href="{% url 'calculo:edit_entrada' entrada_name entrada.id %}">
+	    {{entrada.nombre}}
+	  </a>
+	<td>
+	  <a href="{% url 'calculo:remove_entrada' entrada_name entrada.id %}">
+	    <span class="glyphicon glyphicon-trash"></span>
+	  </a>
 	</td>
       </tr>
       {% endfor %}

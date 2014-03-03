@@ -2,8 +2,10 @@
 
 import re
 from decimal import *
+from operator import methodcaller
 
-from django.http import HttpResponse
+
+from django.http import HttpResponse, HttpResponseNotFound
 from django.template import RequestContext, loader
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.urlresolvers import reverse
@@ -214,22 +216,25 @@ def pendulo(request, proforma_id):
     return render(request, 'calculo/pendulo.html', 
                   {'proforma': proforma, 'mensaje':mensaje})
 
-def materials_list(request):
-    context = {'materials': Material.objects.order_by('nombre')}
-    return render(request, 'calculo/html/materials_list.html', context)
+entradas_ef = {
+    'cliente':(Cliente, ClienteForm, 'clientes'), 
+    'proveedor':(Proveedor, ProveedorForm, 'proveedores'),
+    'material':(Material,MaterialForm,'materiales'),}
 
-def clientes_list(request):
-    context = {'clientes': Cliente.objects.order_by('nombre')}
-    return render(request, 'calculo/html/clientes_list.html', context)
-
-def proveedores_list(request):
-    context = {'proveedores': Proveedor.objects.order_by('nombre')}
-    return render(request, 'calculo/html/proveedores_list.html', context)
+def entrada_list(request, entrada_name):
+    if entrada_name in entradas_ef:
+        Entrada, EntradaForm, plural = entradas_ef[entrada_name]
+    else:
+        return HttpResponseNotFound('<h1>Entrada Type Error</h1>')
+    entradas = Entrada.objects.order_by('nombre')
+    context = {'entradas': entradas,
+               'entrada_name': entrada_name,
+               'plural': plural,}
+    return render(request, 'calculo/html/entradas_list.html', context)
 
 def edit_entrada(request, entrada_name, entrada_id = None):
-    if entrada_name == 'cliente':
-        EntradaForm = ClienteForm
-        Entrada = Cliente
+    if entrada_name in entradas_ef:
+        Entrada, EntradaForm, plural = entradas_ef[entrada_name]
     else:
         return HttpResponseNotFound('<h1>Entrada Error</h1>')
     if request.method == 'POST':
@@ -243,29 +248,31 @@ def edit_entrada(request, entrada_name, entrada_id = None):
             if form.is_valid(): # All validation rules pass
                 entrada = form.save()
             # Redirect after POST
-        return redirect(reverse('calculo:'+entrada_name+'_list'))
+            else:
+                HttpResponseNotFound('<h1>Form not valid Error</h1>')
+        return redirect(reverse('calculo:entrada_list', args=(entrada_name,)))
     else:
         if entrada_id:
             entrada = get_object_or_404(Entrada, pk=int(entrada_id))
             form = EntradaForm(instance = entrada)
-            context = {'form': form, entrada_name: entrada}
+            context = {
+                'form': form,
+                'entrada': entrada,
+                'entrada_name': entrada_name, 
+                'entrada_id': entrada_id}
         else:
             form = EntradaForm() 
-            context = {'form': form}
-        return render(request, 'calculo/html/edit_'+entrada_name+'.html', context)
+            context = {'form': form, 'entrada_name': entrada_name}
+        return render(request, 'calculo/html/edit_entrada.html', context)
 
 def remove_entrada(request, entrada_name, entrada_id):
-    if entrada_name == 'cliente':
-        Entrada = Cliente
-    elif entrada_name == 'proforma':
-        Entrada = Proforma
+    if entrada_name in entradas_ef:
+        Entrada, EntradaForm, plural = entradas_ef[entrada_name]
     else:
         return HttpResponseNotFound('<h1>Entrada Error</h1>')
     entrada = get_object_or_404(Entrada, pk=int(entrada_id))
     entrada.delete()
-    return redirect(reverse('calculo:'+entrada_name+'_list'))
+    return redirect(reverse('calculo:entrada_list', args=(entrada_name,)))
 
-def edit_material(request, material_id = None):
-    pass
 
 

@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.admin import widgets   
 from django.forms.extras.widgets import SelectDateWidget
 
-from .models import Proforma, Partida, ContenedoresDeProforma, Montaje, Material, Cliente
+from .models import Proforma, Partida, ContenedoresDeProforma, Montaje, Material, Cliente, Proveedor
 from constantes import *
 
 class ProformaForm(forms.ModelForm):
@@ -45,4 +45,4 @@ class ClienteForm(forms.ModelForm):
 
 class ProveedorForm(forms.ModelForm):
     class Meta:
-        model = Cliente
+        model = Proveedor

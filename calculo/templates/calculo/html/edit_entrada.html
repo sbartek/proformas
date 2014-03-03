@@ -1,0 +1,55 @@
+{% extends "calculo/proforma_base.html" %}
+
+{% block title %}Nuevo cliente{% endblock %}
+
+{% block content_nodiv %}
+<div class="container">
+  <div class="page-header">
+    <h1><span class="glyphicon glyphicon-credit-card"></span> &nbsp; 
+      Editar {{entrada_name}}
+    </h1>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      {% if entrada.id %}
+      <form class="form-horizontal" role="form" 
+	    action="{% url 'calculo:edit_entrada' entrada_name entrada_id%}" 
+	    method="post">
+      {% else %}
+      <form class="form-horizontal" role="form" 
+	    action="{% url 'calculo:new_entrada' entrada_name%}" method="post">
+      {% endif %}
+      {% csrf_token %}
+
+      {% for field in form %}
+      <div class="form-group">
+	{{ field.errors }}
+	<label class="col-sm-2 control-label">
+	  {{ field.label_tag }}
+	</label>
+	<div class="col-sm-10 divform">
+	  {{ field }}
+	</div>
+      </div>
+      {% endfor %}
+      
+      <p class="text-center">
+	<input class="btn-lg btn-primary submit" type="submit" value="Guardar" />
+      </p>
+      </form>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block page-header %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+
+

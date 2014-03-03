@@ -48,10 +48,12 @@
 		Base de datos<b class="caret"></b>
 	      </a>
               <ul class="dropdown-menu">
-		<li><a href="{% url 'calculo:cliente_list' %}">Clientes</a></li>
-		<li><a href="{% url 'calculo:proveedores' %}">Proveedores</a></li>
+		<li><a href="{% url 'calculo:entrada_list' 'cliente'%}">Clientes</a></li>
+		<li><a href="{% url 'calculo:entrada_list' 'proveedor' %}">
+		    Proveedores
+		</a></li>
 		<li>
-		  <a href="{% url 'calculo:materiales' %}">
+		  <a href="{% url 'calculo:entrada_list' 'material' %}">
 		    Materiales
 		  </a>
 		</li>
