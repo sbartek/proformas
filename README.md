@@ -1,0 +1,1 @@
+Un programa para calcular cooficientes para ofertas de venta.
