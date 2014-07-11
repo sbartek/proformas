@@ -10,7 +10,7 @@ from django.template import RequestContext, loader
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.urlresolvers import reverse
 
-from constantes import *
+from .constantes import *
 from .models import Proforma, Partida, Material, Contenedor, ContenedoresDeProforma, Montaje, Cliente, Proveedor
 from .forms import ProformaForm, PartidaForm, ContenedoresDeProformaForm, MontajeForm, ClienteForm, ProveedorForm, MaterialForm 
 

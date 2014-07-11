@@ -5,7 +5,7 @@ from django.contrib.admin import widgets
 from django.forms.extras.widgets import SelectDateWidget
 
 from .models import Proforma, Partida, ContenedoresDeProforma, Montaje, Material, Cliente, Proveedor
-from constantes import *
+from .constantes import *
 
 class ProformaForm(forms.ModelForm):
     class Meta:
